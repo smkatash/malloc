@@ -6,7 +6,7 @@
 #    By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 11:19:19 by kanykei           #+#    #+#              #
-#    Updated: 2024/02/02 21:56:19 by kanykei          ###   ########.fr        #
+#    Updated: 2024/04/06 21:27:11 by kanykei          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,12 @@ LIB_NAME 	:= libft_malloc.so
 
 VPATH		:= srcs
 
-SRC			:= malloc.c alloc.c lists.c
+SRC			:= malloc.c alloc.c lists.c show.c free.c realloc.c
 
 # ================================ Flags ===================================== #
 OBJ			:= $(addprefix obj/,$(notdir $(SRC:.c=.o)))
 CC			:= gcc
-CFLAGS 		:= -Wall -Wextra -Werror -fPIC #-fsanitize=address 
+CFLAGS 		:= -Wall -Wextra -Werror -fPIC 
 
 # ============================== Libraries ==================================== #
 INCFL		:=	-I./include -I./libs/libft
@@ -40,7 +40,7 @@ LIBFT		:=	libs/libft/libft.a
 all: $(LIB_NAME)
 
 $(NAME)		: $(OBJ) $(LIBFT) 
-			$(CC) -shared -o $(NAME) $(OBJ) $(LIBS)
+			$(CC) $(CFLAGS) -shared -o $(NAME) $(OBJ) $(LIBS)
 			@echo "\033[1;32m malloc is compiled \033[0m"
 
 $(LIB_NAME)	: $(NAME)
@@ -65,6 +65,10 @@ fclean		: clean
 			- (cd libs/libft && make fclean)
 
 re			: clean all
+
+test		:
+			gcc main.c $(NAME)
+			./a.out
 
 .PHONY		:	all clean fclean re 
 
