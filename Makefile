@@ -6,7 +6,7 @@
 #    By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 11:19:19 by kanykei           #+#    #+#              #
-#    Updated: 2024/04/06 21:27:11 by kanykei          ###   ########.fr        #
+#    Updated: 2024/04/07 17:25:49 by kanykei          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIB_NAME 	:= libft_malloc.so
 
 VPATH		:= srcs
 
-SRC			:= malloc.c alloc.c lists.c show.c free.c realloc.c
+SRC			:= malloc.c alloc.c page.c show.c free.c realloc.c block.c align.c shift.c
 
 # ================================ Flags ===================================== #
 OBJ			:= $(addprefix obj/,$(notdir $(SRC:.c=.o)))
@@ -53,7 +53,7 @@ obj			:
 			mkdir obj
 
 $(LIBFT):
-			- (cd libs/libft && make bonus && make clean)
+			- (cd libs/libft && make && make clean)
 
 clean		:
 			rm -rf obj
@@ -64,7 +64,7 @@ fclean		: clean
 			@echo "deleting malloc..."
 			- (cd libs/libft && make fclean)
 
-re			: clean all
+re			: fclean all
 
 test		:
 			gcc main.c $(NAME)

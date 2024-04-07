@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   shift.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 18:56:36 by ktashbae          #+#    #+#             */
-/*   Updated: 2024/04/07 16:29:39 by kanykei          ###   ########.fr       */
+/*   Created: 2024/04/07 17:25:33 by kanykei           #+#    #+#             */
+/*   Updated: 2024/04/07 17:28:12 by kanykei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "malloc.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+inline void	*forward_shift_heap_metadata(void *ptr)
 {
-	int				i;
-	unsigned char	*p;
+	return ((void *)(ptr + sizeof(t_hdata)));
+}
 
-	i = 0;
-	p = (unsigned char *)b;
-	while (len > 0)
-	{
-		p[i] = (unsigned char)c;
-		i++;
-		len--;
-	}
-	return (p - len);
+inline void	*forward_shift_block_metadata(void *ptr)
+{
+	return ((void *)(ptr + sizeof(t_bdata)));
+}
+
+inline void	*backward_shift_block_metadata(void *ptr)
+{
+	return ((void *)(ptr - sizeof(t_bdata)));
 }

@@ -6,7 +6,7 @@
 /*   By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 19:59:58 by ktashbae          #+#    #+#             */
-/*   Updated: 2024/04/06 21:46:31 by kanykei          ###   ########.fr       */
+/*   Updated: 2024/04/07 16:30:09 by kanykei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	ft_putstr_fd(char *s, int fd)
 	{
 		ft_putchar_fd(s[i], fd);
 		i++;
-	}	
+	}
 }
