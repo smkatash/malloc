@@ -6,7 +6,7 @@
 /*   By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 16:25:52 by kanykei           #+#    #+#             */
-/*   Updated: 2024/04/07 17:26:02 by kanykei          ###   ########.fr       */
+/*   Updated: 2024/04/11 09:59:30 by kanykei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <sys/mman.h>
 # include <stdio.h>
 # include <string.h> 
-#include <stdbool.h>
+# include <stdbool.h>
 
 # define TINY 0
 # define SMALL 1
