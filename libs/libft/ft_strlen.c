@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 16:25:52 by kanykei           #+#    #+#             */
-/*   Updated: 2024/04/19 16:56:26 by kanykei          ###   ########.fr       */
+/*   Created: 2022/03/28 20:02:20 by ktashbae          #+#    #+#             */
+/*   Updated: 2024/04/19 17:08:46 by kanykei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "malloc.h"
+#include "libft.h"
 
-t_hdata	*g_zone[3] = {NULL};
-
-void	*malloc(size_t size)
+size_t	ft_strlen(const char *s)
 {
-	void	*ptr;
+	size_t	i;
 
-	if (size >= SIZE_MAX)
+	i = 0;
+	while (s[i])
 	{
-		return (NULL);
+		i++;
 	}
-	ptr = alloc(size + sizeof(t_bdata));
-	return (ptr);
+	return (i);
 }

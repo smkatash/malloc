@@ -6,7 +6,7 @@
 /*   By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 16:25:52 by kanykei           #+#    #+#             */
-/*   Updated: 2024/04/11 09:59:30 by kanykei          ###   ########.fr       */
+/*   Updated: 2024/04/19 16:56:30 by kanykei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define TINY 0
 # define SMALL 1
 # define LARGE 2
+# define HEXIDECIMAL "0123456789ABCDEF"
+# define DECIMAL "0123456789"
 
 # define TINY_HEAP_SIZE (size_t)getpagesize() // 16384
 # define TINY_BLOCK_SIZE (size_t)(TINY_HEAP_SIZE / 128) // 128 KB
