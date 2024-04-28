@@ -6,7 +6,7 @@
 /*   By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 16:25:52 by kanykei           #+#    #+#             */
-/*   Updated: 2024/04/19 16:56:30 by kanykei          ###   ########.fr       */
+/*   Updated: 2024/04/29 00:56:28 by kanykei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MALLOC_H
 
 # include "../libs/libft/libft.h"
+# include <stdint.h>
 # include <sys/mman.h>
 # include <stdio.h>
 # include <string.h> 
@@ -25,11 +26,11 @@
 # define HEXIDECIMAL "0123456789ABCDEF"
 # define DECIMAL "0123456789"
 
-# define TINY_HEAP_SIZE (size_t)getpagesize() // 16384
+# define TINY_HEAP_SIZE (size_t)(4 * getpagesize()) // 16384
 # define TINY_BLOCK_SIZE (size_t)(TINY_HEAP_SIZE / 128) // 128 KB
-# define SMALL_HEAP_SIZE (size_t)(16 * getpagesize()) // 262144
+# define SMALL_HEAP_SIZE (size_t)(32 * getpagesize()) // 262144
 # define SMALL_BLOCK_SIZE (size_t)(SMALL_HEAP_SIZE / 1024) // 256 KB
-# define LARGE_HEAP_SIZE (size_t)(32 * getpagesize()) // 524288
+# define LARGE_HEAP_SIZE (size_t)(256 * getpagesize()) // 524288
 
 /*
 ** For a pagesize of 16384 bytes
@@ -66,9 +67,10 @@ void				show_alloc_mem(void);
 void				*alloc(size_t size);
 void				free_page(t_hdata *page);
 t_hdata				*get_new_page(size_t size);
-t_hdata				*get_valid_page(const t_hdata *head, size_t size);
+t_hdata				*get_valid_page(t_hdata *head, size_t size);
 t_bdata				*get_page_block(t_hdata *page, size_t size);
 t_bdata				*init_block(t_hdata *page, size_t size);
+bool				valid_block(void *ptr, t_hdata *zone);
 size_t				align_heap_size(size_t type);
 size_t				align_heap_type(size_t size);
 size_t				align_block_size(size_t type);

@@ -6,7 +6,7 @@
 /*   By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 16:25:52 by kanykei           #+#    #+#             */
-/*   Updated: 2024/04/07 17:17:08 by kanykei          ###   ########.fr       */
+/*   Updated: 2024/04/29 00:56:10 by kanykei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	merge_free_blocks(t_bdata *current_block)
 	}
 }
 
-static bool	valid_block(void *ptr, t_hdata *zone)
+bool	valid_block(void *ptr, t_hdata *zone)
 {
 	t_bdata	*block;
 	void	*temp_ptr;

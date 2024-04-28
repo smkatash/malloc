@@ -6,13 +6,13 @@
 /*   By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 16:25:52 by kanykei           #+#    #+#             */
-/*   Updated: 2024/04/19 16:56:26 by kanykei          ###   ########.fr       */
+/*   Updated: 2024/04/28 23:05:11 by kanykei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-t_hdata	*g_zone[3] = {NULL};
+t_hdata	*g_zone[3] = {NULL, NULL, NULL};
 
 void	*malloc(size_t size)
 {

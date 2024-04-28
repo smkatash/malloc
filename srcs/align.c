@@ -6,19 +6,19 @@
 /*   By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 17:19:46 by kanykei           #+#    #+#             */
-/*   Updated: 2024/04/07 17:26:38 by kanykei          ###   ########.fr       */
+/*   Updated: 2024/04/29 00:03:44 by kanykei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "malloc.h"
 
-inline size_t	align_heap_size(size_t type)
+inline size_t	align_heap_size(size_t size)
 {
-	if (type <= TINY_BLOCK_SIZE)
+	if (size <= TINY_BLOCK_SIZE)
 	{
 		return (TINY_HEAP_SIZE);
 	}
-	if (type <= SMALL_BLOCK_SIZE)
+	if (size <= SMALL_BLOCK_SIZE)
 	{
 		return (SMALL_HEAP_SIZE);
 	}
@@ -38,13 +38,13 @@ inline size_t	align_heap_type(size_t size)
 	return (LARGE);
 }
 
-inline size_t	align_block_size(size_t type)
+inline size_t	align_block_size(size_t size)
 {
-	if (type <= TINY)
+	if (size <= TINY)
 	{
 		return (TINY_BLOCK_SIZE);
 	}
-	if (type <= SMALL)
+	if (size <= SMALL)
 	{
 		return (SMALL_BLOCK_SIZE);
 	}

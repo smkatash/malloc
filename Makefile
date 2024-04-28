@@ -6,7 +6,7 @@
 #    By: kanykei <kanykei@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 11:19:19 by kanykei           #+#    #+#              #
-#    Updated: 2024/04/19 17:08:06 by kanykei          ###   ########.fr        #
+#    Updated: 2024/04/29 00:59:44 by kanykei          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC			:= malloc.c alloc.c page.c show.c free.c realloc.c block.c align.c shift.c
 # ================================ Flags ===================================== #
 OBJ			:= $(addprefix obj/,$(notdir $(SRC:.c=.o)))
 CC			:= gcc
-CFLAGS 		:= -Wall -Wextra -Werror
+CFLAGS 		:= -Wall -Wextra -Werror -fPIC
 
 # ============================== Libraries ==================================== #
 INCFL		:=	-I./include -I./libs/libft
@@ -68,7 +68,6 @@ re			: fclean all
 
 test		:
 			gcc main.c -o main $(NAME)
-			./main
 
 .PHONY		:	all clean fclean re 
 

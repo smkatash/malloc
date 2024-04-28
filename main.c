@@ -1,20 +1,24 @@
-# include "include/malloc.h"
-# include <stdio.h>
-# include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
+#define M (1024 * 1024)
 
-int main() {
-    show_alloc_mem();
-    ft_putstr_fd("\n", STDOUT_FILENO);
-    char *str1 = malloc(10);
-    show_alloc_mem();
-    ft_putstr_fd("\n", STDOUT_FILENO);
-    free(str1);
-    show_alloc_mem();
-    ft_putstr_fd("\n", STDOUT_FILENO);
-    char *str2 = malloc(10000000000);
-    show_alloc_mem();
-    ft_putstr_fd("\n", STDOUT_FILENO);
-    free(str2);
-    show_alloc_mem();
+void print(char *s)
+{
+	write(1, s, strlen(s));
 }
+
+int main()
+{
+	char *addr1;
+	char *addr3;
+
+	addr1 = (char*)malloc(16*M);
+	strcpy(addr1, "Bonjours\n");
+	print(addr1);
+	addr3 = (char*)realloc(addr1, 128*M);
+	addr3[127*M] = 42;
+	print(addr3);
+	return (0);
+} 
